@@ -1,0 +1,10 @@
+{
+  "suiPrivKey": "suiprivkey...",
+  "rpcUrl": "",
+  "countdownThreshold": 10000,
+  "winnerWhitelist": [
+    "0x531651add5343c43fd114181f33e59e0989dd68b4b6a0425758bd84e6707c7d9"
+  ],
+  "winnerThreshold": 2,
+  "referrer": "0x531651add5343c43fd114181f33e59e0989dd68b4b6a0425758bd84e6707c7d9"
+}
