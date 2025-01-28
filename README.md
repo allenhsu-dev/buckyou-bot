@@ -25,7 +25,7 @@ Create file `env.json`
 }
 ```
 
-## Run (make sure you have enough SUI or BUCK in sender wallet)
+## Run
 Buy with SUI
 ```
 tsx auto-buy-with-sui.ts
@@ -34,3 +34,4 @@ Buy with BUCK
 ```
 tsx auto-buy-with-buck.ts
 ```
+P.S. make sure you have enough SUI and BUCK in sender wallet
