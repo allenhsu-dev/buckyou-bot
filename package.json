@@ -1,5 +1,21 @@
 {
+  "name": "buckyou-bot",
+  "version": "1.0.0",
+  "description": "Automated ticket purchasing bot for BuckYou 2025",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/auto-buy.ts",
+    "dev": "tsx watch src/auto-buy.ts"
+  },
   "dependencies": {
-    "@mysten/sui": "^1.21.0"
+    "@mysten/sui": "^1.21.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "@types/yargs": "^17.0.32",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
   }
 }

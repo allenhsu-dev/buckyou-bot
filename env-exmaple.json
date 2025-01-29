@@ -1,10 +1,14 @@
 {
   "suiPrivKey": "suiprivkey...",
   "rpcUrl": "",
-  "countdownThreshold": 10000,
-  "winnerWhitelist": [
-    "0x531651add5343c43fd114181f33e59e0989dd68b4b6a0425758bd84e6707c7d9"
-  ],
-  "winnerThreshold": 2,
-  "referrer": "0x531651add5343c43fd114181f33e59e0989dd68b4b6a0425758bd84e6707c7d9"
+  "strategy": {
+    "preferredToken": "SUI",
+    "countdownThreshold": 10000,
+    "winnerStrategy": {
+      "whitelist": [],
+      "threshold": 1
+    },
+    "testMode": true
+  },
+  "referrer": "0x3bcc0e33f2390ce0b4208378a28c6304d0228eae186a0a96eabcb7fb7e5a6a31"
 }

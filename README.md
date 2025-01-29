@@ -1,37 +1,93 @@
-# buckyou-bot
-To be the final winners of BuckYou 2025
+# BuckYou Bot
+
+[English](README.md) | [中文](README_CN.md) | [日本語](README_JP.md) | [한국어](README_KR.md)
+
+## Introduction
+
+This is an automated ticket purchasing bot for BuckYou 2025. It monitors and automatically purchases tickets at optimal times, supporting both SUI and BUCK tokens.
 
 ## Setup
-Install `tsx`
+
+### 1. Required Tools
+
+First, install Node.js (version 22+ recommended) and tsx:
+
+```bash
+npm install -g tsx
 ```
-npm i -g tsx
-```
-Install packages
-```
+
+### 2. Install Dependencies
+
+In the project directory:
+
+```bash
 npm install
 ```
-Create file `env.json`
+
+### 3. Configuration
+
+Create `env.json` file with the following configuration:
+
 ```json
 {
-  "suiPrivKey": "suiprivkey...", // private key with prefix 'suiprivkey'
-  "rpcUrl": "", // custom RPC URL ("" means default)
-  "countdownThreshold": 10000, // buy under 10000 ms (10 sec)
-  "winnerWhitelist": [ // if these addresses are winners then don't buy
-    "0x531651add5343c43fd114181f33e59e0989dd68b4b6a0425758bd84e6707c7d9"
-  ],
-  "winnerThreshold": 2, // how many seats owned by winnerWhitelist then don't buy
-  "referrer": // your referrer (if don't have one can use mine ^_^)
-    "0x531651add5343c43fd114181f33e59e0989dd68b4b6a0425758bd84e6707c7d9"
+  "suiPrivKey": "suiprivkey...", // Your SUI private key (must start with 'suiprivkey')
+  "rpcUrl": "", // Custom RPC URL (leave empty for default)
+  "strategy": {
+    "preferredToken": "SUI", // Preferred token ("SUI" or "BUCK")
+    "countdownThreshold": 10000, // Countdown threshold in milliseconds
+    "winnerStrategy": {
+      "whitelist": [
+        // Winner whitelist (don't buy when these addresses win)
+        ""
+      ],
+      "threshold": 2 // Stop buying when whitelist addresses own this many tickets
+    }
+  },
+  "testMode": true, // Test mode, won't make actual purchases
+  "referrer": "0x3bcc0e33f2390ce0b4208378a28c6304d0228eae186a0a96eabcb7fb7e5a6a31" // Referrer address
 }
 ```
 
-## Run
-Buy with SUI
+## Usage
+
+### Basic Execution
+
+Automatically choose the best payment method:
+
+```bash
+npm start
 ```
-tsx auto-buy-with-sui.ts
+
+### Token-Specific Execution
+
+Buy with SUI:
+
+```bash
+npm start --token SUI
 ```
-Buy with BUCK
+
+Buy with BUCK:
+
+```bash
+npm start--token BUCK
 ```
-tsx auto-buy-with-buck.ts
+
+### Advanced Parameters
+
+```bash
+npm start [options]
+
+Options:
+  --token <SUI|BUCK>          Specify token to use
+  --threshold <milliseconds>  Set purchase timing (countdown in ms)
 ```
-P.S. make sure you have enough SUI and BUCK in sender wallet
+
+## Important Notes
+
+1. Ensure sufficient SUI and BUCK tokens in wallet before running
+2. Test with small amounts first to verify settings
+3. Keep terminal open while bot is running
+4. For security considerations:
+   - Create a new wallet specifically for ticket purchasing
+   - Only deposit the amount needed for tickets
+   - Don't use your main wallet's private key
